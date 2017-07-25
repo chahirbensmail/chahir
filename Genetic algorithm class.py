@@ -11,7 +11,12 @@ from sklearn.linear_model import LinearRegression
 """
 
 # Example of running - maximizing based on r2 coefficient and a linear regression model. 
-df = pd.read_csv("C:/Users/bensmail/Documents/Python Scripts/Toolkit/ds-toolkit/test_data/boston.csv")
+# Example of dataset - boston house-prices dataset
+from sklearn.datasets import load_boston
+boston = load_boston()
+X = boston.data
+y = boston.target
+df = pd.DataFrame(data= np.c_[X, y])
 ga = GeneticAlgorithm(df, population_size = 10,
                       iterations = 100,
                       crossover_probability = 0.5,
